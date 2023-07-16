@@ -9,16 +9,34 @@
   justify-content: center;
 }
 
-.row {
-   display: flex;
-}
+
 
 .container {
-  margin-left:40px;
+
   margin-top:20px;
   
 }
 
 .myalert{
   align-content: center;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  font-size: large;
+  height: 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  
 }

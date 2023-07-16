@@ -57,7 +57,7 @@ const Board = (props) => {
                 if (res === undefined && !result) {
                     setTic(Array(9).fill(null))
                     setIsStarted(false)
-                    
+
                     setMatchStatus(`Match Tied!`)
                 }
 
@@ -73,46 +73,49 @@ const Board = (props) => {
         <>
 
 
-            <nav className="navbar bg-body-tertiary">
+            <nav className="navbar bg-body-secondary">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#" >
                         <img src="tic_logo.png" alt="logo" style={{ maxHeight: '50px', maxWidth: '50px', marginRight: '10px', marginLeft: '5px' }} />
-                        <span style={{fontSize:'25px'}}>Tic-Tac-Toe</span>
+                        <span style={{ fontSize: '25px' }}>Tic-Tac-Toe</span>
                     </a>
                 </div>
             </nav>
 
-            {
-                matchStatus && 
-                <div  style={{margin:'20px', display:'flex', flexDirection:'column', flexWrap:'wrap',  alignContent:'center' , maxWidth:'600px'}} className="myalert alert alert-success" role="alert">
-                    <h2 >{matchStatus}</h2>
-                </div>
+            <div className="box">
 
-            }
-            {isStarted ?
-                <>
-                    <button onClick={() => { setTic(Array(9).fill(null)) }} style={{ marginBottom:'20px', marginLeft: '40px' }} type="button" className="btn btn-warning">Reset Game</button>
-                    <div className="alert alert-info" style={{ marginLeft: '40px', maxWidth:'200px', display:'flex', flexDirection:'column', flexWrap:'wrap',  alignContent:'center' }}>{isTicked ? <h2>X's turn</h2> : <h2>O's turn</h2>}</div>
-                    <div style={{maxWidth:'310px'}} className="container">
-                        <div className="row">
-                            <Square value={tic[0]} index='0' onClick={handleClick} />
-                            <Square value={tic[1]} index='1' onClick={handleClick} />
-                            <Square value={tic[2]} index='2' onClick={handleClick} />
-                        </div>
-                        <div className="row">
-                            <Square value={tic[3]} index='3' onClick={handleClick} />
-                            <Square value={tic[4]} index='4' onClick={handleClick} />
-                            <Square value={tic[5]} index='5' onClick={handleClick} />
-                        </div>
-                        <div className="row">
-                            <Square value={tic[6]} index='6' onClick={handleClick} />
-                            <Square value={tic[7]} index='7' onClick={handleClick} />
-                            <Square value={tic[8]} index='8' onClick={handleClick} />
-                        </div>
-                    </div></>
-                : <button onClick={() => { setIsStarted(!isStarted);setMatchStatus(""); }} style={{ marginLeft: '40px' }} type="button" className="btn btn-warning">Start the Game</button>}
+                {
+                    matchStatus &&
+                    <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', maxWidth: '600px' }} className="myalert alert alert-success" role="alert">
+                        <h2 >{matchStatus}</h2>
+                    </div>
 
+                }
+                {isStarted ?
+                    <div className="box">
+                        <button onClick={() => { setTic(Array(9).fill(null)) }} style={{ marginTop: '15px', marginBottom: '20px'}} type="button" className="btn btn-warning">Reset Game</button>
+                        <div className="alert alert-info" style={{ maxWidth: '200px', display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center' }}>{isTicked ? <h2>X's turn</h2> : <h2>O's turn</h2>}</div>
+                        <div className="box container">
+                            <div className="row">
+                                <Square value={tic[0]} index='0' onClick={handleClick} />
+                                <Square value={tic[1]} index='1' onClick={handleClick} />
+                                <Square value={tic[2]} index='2' onClick={handleClick} />
+                            </div>
+                            <div className="row">
+                                <Square value={tic[3]} index='3' onClick={handleClick} />
+                                <Square value={tic[4]} index='4' onClick={handleClick} />
+                                <Square value={tic[5]} index='5' onClick={handleClick} />
+                            </div>
+                            <div className="row">
+                                <Square value={tic[6]} index='6' onClick={handleClick} />
+                                <Square value={tic[7]} index='7' onClick={handleClick} />
+                                <Square value={tic[8]} index='8' onClick={handleClick} />
+                            </div>
+                        </div>
+                    </div>
+                    : <button onClick={() => { setIsStarted(!isStarted); setMatchStatus(""); }} style={{ marginTop: '15px' }} type="button" className="btn btn-warning">Start the Game</button>}
 
+            </div>
         </>
     );
 }
