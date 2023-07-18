@@ -5,7 +5,7 @@ function Square(props) {
       onClick={() => {
         if("vibrate" in navigator){
           console.log('I got clicked.')
-          navigator.vibrate(200);
+          navigator.vibrate(70);
         }
         props.onClick(props.index);
       }}
